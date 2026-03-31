@@ -659,15 +659,12 @@
 
     /* ===== AIRAPI LOGO ===== */
     .airapi-logo-hero {
-      height: 52px;
+      height: 90px;
       width: auto;
-      filter: brightness(1.1);
+      border-radius: 8px;
+      filter: brightness(1.15);
       transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), filter 0.3s ease;
       animation: airapi-float 4s ease-in-out infinite;
-    }
-    .airapi-logo-hero:hover {
-      transform: scale(1.25);
-      filter: brightness(1.3) drop-shadow(0 0 18px rgba(200,169,81,0.45));
     }
     @keyframes airapi-float {
       0%, 100% { transform: translateY(0); }
@@ -676,19 +673,20 @@
     .airapi-logo-hero:hover {
       animation: none;
       transform: scale(1.25);
-      filter: brightness(1.3) drop-shadow(0 0 18px rgba(200,169,81,0.45));
+      filter: brightness(1.35) drop-shadow(0 0 20px rgba(200,169,81,0.5));
     }
     .airapi-logo-footer {
-      height: 40px;
+      height: 55px;
       width: auto;
-      filter: brightness(1.05);
+      border-radius: 6px;
+      filter: brightness(1.1);
       transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), filter 0.3s ease;
       animation: airapi-float 5s ease-in-out infinite;
     }
     .airapi-logo-footer:hover {
       animation: none;
       transform: scale(1.2);
-      filter: brightness(1.3) drop-shadow(0 0 14px rgba(200,169,81,0.4));
+      filter: brightness(1.35) drop-shadow(0 0 14px rgba(200,169,81,0.45));
     }
     .footer-airapi {
       display: flex;
@@ -819,9 +817,9 @@
 
     <div class="pillars-grid">
       <div class="pillar-card fade-up">
-        <div class="pillar-icon">🏛️</div>
-        <h3 class="pillar-title">Activo Físico Real</h3>
-        <p class="pillar-text">Respaldado por un inmueble de valor en zona urbana consolidada del Centro Histórico de Veracruz. Tu capital tiene fundamento tangible e inmobiliario.</p>
+        <div class="pillar-icon">📜</div>
+        <h3 class="pillar-title">Contrato de Renta Superior a 25 Años</h3>
+        <p class="pillar-text">Ubicado en un inmueble privilegiado del Centro Histórico de Veracruz, con un contrato de arrendamiento a largo plazo que garantiza estabilidad. Esto permite que el retorno de la inversión se multiplique varias veces a lo largo de este ciclo.</p>
       </div>
       <div class="pillar-card fade-up">
         <div class="pillar-icon">⚙️</div>
@@ -1040,7 +1038,7 @@
         </div>
         <div class="inv-feat">
           <div class="inv-check">✓</div>
-          <div class="inv-feat-text">Respaldo en activo físico inmobiliario de alto valor estratégico</div>
+          <div class="inv-feat-text">Contrato de renta a 25 años renovables en ubicación privilegiada del Centro Histórico de Veracruz</div>
         </div>
         <div class="inv-feat">
           <div class="inv-check">✓</div>
@@ -1067,6 +1065,24 @@
         <p class="inv-note">Esta es una oferta privada. Las plazas son limitadas y el acceso es por invitación.</p>
       </div>
     </div>
+
+    <!-- Segunda Fase -->
+    <div class="inv-card fade-up" style="margin-top: 3rem; border: 1px solid rgba(200,169,81,0.15); position: relative; overflow: hidden;">
+      <div style="position:absolute; top:0; left:0; right:0; height:3px; background: linear-gradient(90deg, transparent, var(--gold), transparent);"></div>
+      <div class="inv-header">
+        <div class="inv-badge" style="background: rgba(200,169,81,0.08); border-color: rgba(200,169,81,0.2);">Segunda Fase de Inversión — A partir de Junio 2026</div>
+        <div class="inv-price gold-text">$2,000,000 <span style="font-size:0.45em; font-family:'Cormorant Garamond',serif;">MXN</span></div>
+        <p class="inv-price-note">por lote de 10% de participación</p>
+        <div class="roi-badge" style="margin-top: 1rem;">
+          <span class="roi-symbol">↑</span> Plusvalía garantizada para inversionistas de primera ronda
+        </div>
+        <div class="divider" style="max-width:200px;"><div class="diamond"></div></div>
+      </div>
+      <p style="text-align:center; font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--muted); line-height:1.7; max-width:600px; margin:0 auto; padding: 0 1.5rem 1.5rem;">
+        Quienes inviertan en la ronda actual a $1.6M aseguran una plusvalía inmediata del 25% sobre el valor de su participación al momento de apertura de esta segunda fase.
+      </p>
+    </div>
+
   </div>
 </section>
 
