@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oferta de Inversión Irrevocable - Puerto de Paz</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET & ROOT ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --deep:       #080012;
+      --brand:      #3D0066;
+      --gold:       #C8A951;
+      --gold-lt:    #E8C97A;
+      --cream:      #F5F0E8;
+      --dark-text:  #111111;
+      --gray-text:  #444444;
+      --border-color: #D1C5B4;
+    }
+
+    body {
+      background: var(--deep); /* Screen background */
+      color: var(--dark-text); /* Doc text color */
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding: 3rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ===== A4 DOCUMENT STYLE ===== */
+    .document {
+      background: #FFFFFF;
+      width: 100%;
+      max-width: 850px;
+      padding: 4.5rem 5rem;
+      border-radius: 4px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    /* Print Controls for screen */
+    .controls {
+      margin-bottom: 2rem;
+      display: flex;
+      gap: 1rem;
+    }
+    .btn-print {
+      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+      color: var(--deep);
+      padding: 0.8rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-print:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(200,169,81,0.4);
+    }
+    
+    .btn-back {
+      background: transparent;
+      color: var(--cream);
+      border: 1px solid rgba(245,240,232,0.4);
+      padding: 0.8rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .btn-back:hover {
+      background: rgba(245,240,232,0.1);
+      border-color: var(--cream);
+    }
+
+    /* ===== DOCUMENT TYPOGRAPHY ===== */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4rem;
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 2rem;
+    }
+    .logo-area h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      color: var(--brand);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .logo-area p {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .doc-meta {
+      text-align: right;
+      font-size: 0.85rem;
+      color: var(--gray-text);
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--dark-text);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--brand);
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+      text-align: justify;
+    }
+
+    .strong-text {
+      font-weight: 600;
+      color: var(--dark-text);
+    }
+
+    /* Fillable blanks */
+    .blank {
+      display: inline-block;
+      min-width: 250px;
+      border-bottom: 1px solid var(--dark-text);
+      background: rgba(200,169,81,0.05);
+    }
+    .blank.short {
+      min-width: 120px;
+    }
+
+    /* Alert Box */
+    .alert-box {
+      background: rgba(200,169,81,0.1);
+      border-left: 4px solid var(--gold);
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    .alert-box h4 {
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      color: #9C7A20;
+      margin-bottom: 0.5rem;
+    }
+    .alert-box p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: 0.85rem;
+    }
+    th {
+      background: var(--brand);
+      color: white;
+      text-align: left;
+      padding: 0.8rem 1rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--gray-text);
+    }
+    tr:nth-child(even) td {
+      background: rgba(245,240,232,0.3);
+    }
+    input[type="text"] {
+      border: none;
+      border-bottom: 1px solid #CCC;
+      background: transparent;
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: var(--dark-text);
+      outline: none;
+    }
+    input[type="text"]:focus {
+      border-bottom-color: var(--gold);
+    }
+
+    /* Signatures */
+    .signatures {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 5rem;
+    }
+    .sig-block {
+      text-align: center;
+    }
+    .sig-line {
+      border-bottom: 1px solid var(--dark-text);
+      margin-bottom: 0.5rem;
+      height: 60px;
+    }
+    .sig-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+    .sig-title {
+      font-size: 0.75rem;
+      color: var(--gray-text);
+    }
+
+    /* Info Print Note */
+    .print-note {
+      font-size: 0.8rem;
+      color: var(--cream);
+      opacity: 0.6;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    /* ===== PRINT SPECIFIC CSS ===== */
+    @media print {
+      @page {
+        margin: 0;
+        size: letter;
+      }
+      body {
+        background: none;
+        padding: 0;
+      }
+      .controls, .print-note {
+        display: none !important;
+      }
+      .document {
+        box-shadow: none;
+        max-width: 100%;
+        padding: 2.5cm;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .document {
+        padding: 2.5rem 1.5rem;
+      }
+      .signatures {
+        grid-template-columns: 1fr;
+      }
+      .controls {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 1rem;
+      }
+      .btn-print, .btn-back {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="controls">
+    <a href="index.html" class="btn-back">← Volver al Sitio</a>
+    <button class="btn-print" onclick="window.print()">Imprimir Carta</button>
+  </div>
+
+  <div class="document">
+    <div class="header">
+      <div class="logo-area">
+        <h1>Puerto de Paz</h1>
+        <p>Inversión Privada</p>
+      </div>
+      <div class="doc-meta">
+        Lugar y Fecha:<br>
+        <input type="text" placeholder="Ciudad, Estado, a DD de MM de 202X" style="width:220px; margin-top:0.4rem;">
+      </div>
+    </div>
+
+    <h2>Oferta de Inversión Irrevocable</h2>
+
+    <p>Dirigido a: <span class="strong-text">Martín Zamora Mora</span><br>
+    Asunto: Oferta de Inversión y Carta Compromiso - Proyecto Puerto de Paz</p>
+
+    <p>Por medio de la presente, yo, <input type="text" class="blank" placeholder="Nombre completo del Inversionista">, presento de manera formal e irrevocable mi oferta de inversión para formar parte del proyecto <strong>"Puerto de Paz"</strong>.</p>
+
+    <p>Al suscribir este documento, manifiesto mi intención jurídica y financiera de adquirir el <span class="strong-text">10% de los derechos de inversión</span> del proyecto. Entiendo y acepto que dicha participación estará representada orgánicamente en el <strong>capital social de Serie A</strong> dentro de la estructura de la empresa <em>Puerto de Paz, S.A. de C.V.</em>, quedando el capital de Serie E asignado a la contraparte operativa y fundadora, conforme a los acuerdos societarios previamente dialogados.</p>
+
+    <p>Como muestra de buena fe y para asegurar de manera exclusiva mi lugar en esta ronda de inversión privada, me comprometo a realizar un primer depósito de <span class="strong-text">$100,000.00 MXN</span> (Cien mil pesos 00/100 M.N.) por concepto de apartado vinculante.</p>
+
+    <div class="alert-box">
+      <h4>Declaración de No Reembolso</h4>
+      <p>Entiendo y acepto plenamente que este primer depósito de apartado de <strong>$100,000 MXN tiene el carácter de NO REEMBOLSABLE</strong>. Este capital es fundamental para el arranque de obra y las diligencias inmediatas del proyecto hoy por hoy. En caso de que yo decidiese retractarme, no concretar el esquema de inversión acordado o dar marcha atrás a esta Oferta de Inversión por cualquier motivo, <strong>perderé de manera definitiva e irrevocable la totalidad de este dinero</strong>, renunciando desde este momento a cualquier derecho de reclamo, acción legal o solicitud de reintegro.</p>
+    </div>
+
+    <h3>Simulacro y Calendario de Aportaciones</h3>
+    <p>A continuación se detalla la tabla de pagos o aportaciones, reflejando el compromiso por el 10% de participación en Puerto de Paz. El esquema de desembolso queda sujeto al siguiente calendario:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Etapa</th>
+          <th>Concepto</th>
+          <th>Fecha Límite</th>
+          <th>Monto a Aportar (MXN)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Depósito Inicial (Apartado No Reembolsable)</td>
+          <td><input type="text" placeholder="DD/MM/AAAA" class="blank short"></td>
+          <td><strong>$100,000.00</strong></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Firma de Contrato y Adjudicación de Acciones</td>
+          <td><input type="text" placeholder="DD/MM/AAAA" class="blank short"></td>
+          <td><input type="text" placeholder="$ _________________" class="blank short"></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Aportación para Arranque Operativo/Obra</td>
+          <td><input type="text" placeholder="DD/MM/AAAA" class="blank short"></td>
+          <td><input type="text" placeholder="$ _________________" class="blank short"></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Aportación Final (Entrega y Operación)</td>
+          <td><input type="text" placeholder="DD/MM/AAAA" class="blank short"></td>
+          <td><input type="text" placeholder="$ _________________" class="blank short"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Declaro formalmente que los fondos objeto de esta inversión provienen de fuentes y actividades lícitas.</p>
+    <p>Firmado de conformidad el día detallado al inicio de este documento.</p>
+
+    <div class="signatures">
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Firma del Inversionista</div>
+        <div class="sig-title"><input type="text" placeholder="Nombre manuscrito"></div>
+        <div class="sig-title" style="margin-top:0.4rem;">INE / Pasaporte: <input type="text" placeholder="Número de ID" style="width:120px;"></div>
+      </div>
+      
+      <div class="sig-block">
+        <div class="sig-line"></div>
+        <div class="sig-name">Martín Zamora Mora</div>
+        <div class="sig-title">Representante Legal</div>
+        <div class="sig-title" style="margin-top:0.4rem;">Puerto de Paz, S.A. de C.V.</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="print-note">Para una mejor experiencia, utiliza hojas tamaño Carta (Letter) al imprimir.</p>
+
+</body>
+</html>
