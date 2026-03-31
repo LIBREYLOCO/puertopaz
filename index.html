@@ -706,7 +706,13 @@
   <div id="particles"></div>
 
   <div class="hero-content">
-    <p class="hero-eyebrow" id="h-eye">Veracruz, México &nbsp;·&nbsp; Proyecto Llave en Mano &nbsp;·&nbsp; Inversión Privada</p>
+    <div style="margin-bottom: 2rem; opacity: 0; transform: translateY(20px);" id="h-airapi">
+      <p style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 0.6rem; opacity: 0.8;">De los creadores de</p>
+      <a href="https://airapi.mx" target="_blank" style="display: inline-block; text-decoration: none;">
+        <span style="font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.8rem; letter-spacing: -0.05em; color: #FFF; line-height: 1;">airapi</span>
+      </a>
+      <p style="font-size: 0.85rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--cream); margin-top: 1.5rem; opacity: 0.9;">Presentamos</p>
+    </div>
 
     <!-- Large emblem -->
     <div class="hero-emblem" id="h-logo">
@@ -770,15 +776,15 @@
   <div class="container">
     <div class="stats-grid">
       <div class="fade-up">
-        <div class="stat-n">4</div>
-        <div class="stat-l">Meses para arranque operativo</div>
+        <div class="stat-n" style="font-size: clamp(2rem, 3vw, 2.5rem); margin-top: 0.5rem;">Nov. '26</div>
+        <div class="stat-l">Mes de arranque operativo</div>
       </div>
       <div class="fade-up">
         <div class="stat-n">24/7</div>
         <div class="stat-l">Operación continua sin restricciones</div>
       </div>
       <div class="fade-up">
-        <div class="stat-n">$160K</div>
+        <div class="stat-n">$1.6M</div>
         <div class="stat-l">MXN por lote de 10%</div>
       </div>
       <div class="fade-up">
@@ -952,7 +958,7 @@
     <div class="inv-card fade-up">
       <div class="inv-header">
         <div class="inv-badge">Ronda Family &amp; Friends — Plazas Limitadas</div>
-        <div class="inv-price gold-text">$160,000 <span style="font-size:0.45em; font-family:'Cormorant Garamond',serif;">MXN</span></div>
+        <div class="inv-price gold-text">$1,600,000 <span style="font-size:0.45em; font-family:'Cormorant Garamond',serif;">MXN</span></div>
         <p class="inv-price-note">por lote de 10% de participación</p>
         <div class="divider" style="max-width:200px;"><div class="diamond"></div></div>
       </div>
@@ -1039,14 +1045,14 @@
           <div class="c-icon">📞</div>
           <div>
             <div class="c-label">Teléfono / WhatsApp</div>
-            <div class="c-val">Por confirmar</div>
+            <div class="c-val">22 99 15 05 23</div>
           </div>
         </div>
         <div class="contact-detail">
           <div class="c-icon">✉️</div>
           <div>
             <div class="c-label">Correo electrónico</div>
-            <div class="c-val">Por confirmar</div>
+            <div class="c-val">martinzamora@yahoo.com.mx</div>
           </div>
         </div>
       </div>
@@ -1070,8 +1076,8 @@
           <label for="nivel">Nivel de interés</label>
           <select id="nivel">
             <option value="">Seleccionar rango de inversión...</option>
-            <option value="1-2">1 – 2 lotes de 10% ($160K – $320K MXN)</option>
-            <option value="3-5">3 – 5 lotes de 10% ($480K – $800K MXN)</option>
+            <option value="1-2">1 – 2 lotes de 10% ($1.6M – $3.2M MXN)</option>
+            <option value="3-5">3 – 5 lotes de 10% ($4.8M – $8.0M MXN)</option>
             <option value="5+">Más de 5 lotes</option>
             <option value="info">Solo quiero más información</option>
           </select>
@@ -1116,8 +1122,8 @@
 
   /* ── Hero entrance ── */
   const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-  tl.to("#h-eye",  { opacity:1, y:0, duration:0.8, delay:0.4 })
-    .to("#h-logo", { opacity:1, scale:1, duration:1.1, ease:"back.out(1.3)" }, "-=0.35")
+  tl.to("#h-airapi",{ opacity:1, y:0, duration:0.9, delay:0.2 })
+    .to("#h-logo",  { opacity:1, scale:1, duration:1.1, ease:"back.out(1.3)" }, "-=0.35")
     .to("#h-title",{ opacity:1, y:0, duration:1 },   "-=0.55")
     .to("#h-sub",  { opacity:1, y:0, duration:0.8 }, "-=0.6")
     .to("#h-div",  { opacity:1, duration:0.7 },       "-=0.4")
