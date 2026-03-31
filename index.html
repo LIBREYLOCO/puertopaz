@@ -215,6 +215,49 @@
       background: radial-gradient(ellipse at center, transparent 30%, rgba(8,0,18,0.7) 100%);
     }
 
+    /* ===== HERO WAVES ===== */
+    .hero-waves {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .hero-waves svg {
+      position: absolute;
+      bottom: -5%;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      opacity: 0.18;
+    }
+    .hero-wave-1 { animation: wave-drift-1 18s ease-in-out infinite; }
+    .hero-wave-2 { animation: wave-drift-2 22s ease-in-out infinite; opacity: 0.12 !important; }
+    .hero-wave-3 { animation: wave-drift-3 26s ease-in-out infinite; opacity: 0.08 !important; }
+    .hero-wave-4 { animation: wave-drift-4 30s ease-in-out infinite; opacity: 0.06 !important; }
+
+    @keyframes wave-drift-1 {
+      0%, 100% { transform: translateX(0) translateY(0); }
+      25% { transform: translateX(-4%) translateY(8px); }
+      50% { transform: translateX(-8%) translateY(0); }
+      75% { transform: translateX(-4%) translateY(-8px); }
+    }
+    @keyframes wave-drift-2 {
+      0%, 100% { transform: translateX(0) translateY(0); }
+      25% { transform: translateX(-6%) translateY(-10px); }
+      50% { transform: translateX(-3%) translateY(6px); }
+      75% { transform: translateX(-9%) translateY(-4px); }
+    }
+    @keyframes wave-drift-3 {
+      0%, 100% { transform: translateX(0) translateY(0) scaleY(1); }
+      33% { transform: translateX(-5%) translateY(12px) scaleY(1.05); }
+      66% { transform: translateX(-10%) translateY(-6px) scaleY(0.95); }
+    }
+    @keyframes wave-drift-4 {
+      0%, 100% { transform: translateX(0) translateY(0); }
+      50% { transform: translateX(-7%) translateY(10px); }
+    }
+
     #particles { position: absolute; inset: 0; pointer-events: none; }
     .particle {
       position: absolute;
@@ -661,9 +704,11 @@
     .airapi-logo-hero {
       height: 90px;
       width: auto;
-      border-radius: 8px;
-      filter: brightness(1.15);
-      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), filter 0.3s ease;
+      border-radius: 10px;
+      background: #fff;
+      padding: 8px 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
       animation: airapi-float 4s ease-in-out infinite;
     }
     @keyframes airapi-float {
@@ -673,20 +718,22 @@
     .airapi-logo-hero:hover {
       animation: none;
       transform: scale(1.25);
-      filter: brightness(1.35) drop-shadow(0 0 20px rgba(200,169,81,0.5));
+      box-shadow: 0 8px 36px rgba(200,169,81,0.35);
     }
     .airapi-logo-footer {
       height: 55px;
       width: auto;
-      border-radius: 6px;
-      filter: brightness(1.1);
-      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), filter 0.3s ease;
+      border-radius: 8px;
+      background: #fff;
+      padding: 6px 12px;
+      box-shadow: 0 3px 16px rgba(0,0,0,0.2);
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
       animation: airapi-float 5s ease-in-out infinite;
     }
     .airapi-logo-footer:hover {
       animation: none;
       transform: scale(1.2);
-      filter: brightness(1.35) drop-shadow(0 0 14px rgba(200,169,81,0.45));
+      box-shadow: 0 6px 28px rgba(200,169,81,0.3);
     }
     .footer-airapi {
       display: flex;
@@ -768,6 +815,25 @@
 <!-- ══════════════════ HERO ══════════════════ -->
 <section id="hero">
   <div class="hero-bg"></div>
+
+  <!-- Animated ocean waves -->
+  <div class="hero-waves">
+    <svg class="hero-wave-1" viewBox="0 0 1440 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,320 C120,280 240,360 360,320 C480,280 600,200 720,240 C840,280 960,360 1080,320 C1200,280 1320,200 1440,240 L1440,600 L0,600 Z" fill="rgba(74,0,128,0.5)"/>
+      <path d="M0,380 C160,340 320,420 480,380 C640,340 800,280 960,320 C1120,360 1280,420 1440,380 L1440,600 L0,600 Z" fill="rgba(61,0,102,0.35)"/>
+    </svg>
+    <svg class="hero-wave-2" viewBox="0 0 1440 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,350 C180,300 360,400 540,350 C720,300 900,240 1080,290 C1260,340 1350,380 1440,350 L1440,600 L0,600 Z" fill="rgba(90,20,160,0.4)"/>
+      <path d="M0,420 C200,380 400,450 600,410 C800,370 1000,300 1200,350 C1350,380 1400,420 1440,400 L1440,600 L0,600 Z" fill="rgba(50,0,90,0.3)"/>
+    </svg>
+    <svg class="hero-wave-3" viewBox="0 0 1440 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,400 C240,350 480,450 720,400 C960,350 1200,280 1440,330 L1440,600 L0,600 Z" fill="rgba(80,10,140,0.35)"/>
+    </svg>
+    <svg class="hero-wave-4" viewBox="0 0 1440 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,440 C300,400 600,480 900,440 C1200,400 1350,360 1440,420 L1440,600 L0,600 Z" fill="rgba(100,30,180,0.25)"/>
+    </svg>
+  </div>
+
   <div id="particles"></div>
 
   <div class="hero-content">
