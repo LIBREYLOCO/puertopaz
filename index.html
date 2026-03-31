@@ -229,12 +229,12 @@
       left: 0;
       width: 200%;
       height: 100%;
-      opacity: 0.18;
     }
-    .hero-wave-1 { animation: wave-drift-1 18s ease-in-out infinite; }
-    .hero-wave-2 { animation: wave-drift-2 22s ease-in-out infinite; opacity: 0.12 !important; }
-    .hero-wave-3 { animation: wave-drift-3 26s ease-in-out infinite; opacity: 0.08 !important; }
-    .hero-wave-4 { animation: wave-drift-4 30s ease-in-out infinite; opacity: 0.06 !important; }
+    .hero-wave-1 { animation: wave-drift-1 18s ease-in-out infinite; opacity: 0.45; }
+    .hero-wave-2 { animation: wave-drift-2 22s ease-in-out infinite; opacity: 0.35; }
+    .hero-wave-3 { animation: wave-drift-3 26s ease-in-out infinite; opacity: 0.28; }
+    .hero-wave-4 { animation: wave-drift-4 30s ease-in-out infinite; opacity: 0.22; }
+    .hero-wave-foam { animation: wave-drift-foam 20s ease-in-out infinite; opacity: 0.12; }
 
     @keyframes wave-drift-1 {
       0%, 100% { transform: translateX(0) translateY(0); }
@@ -256,6 +256,11 @@
     @keyframes wave-drift-4 {
       0%, 100% { transform: translateX(0) translateY(0); }
       50% { transform: translateX(-7%) translateY(10px); }
+    }
+    @keyframes wave-drift-foam {
+      0%, 100% { transform: translateX(0) translateY(0); }
+      30% { transform: translateX(-3%) translateY(-5px); }
+      60% { transform: translateX(-6%) translateY(7px); }
     }
 
     #particles { position: absolute; inset: 0; pointer-events: none; }
@@ -702,13 +707,14 @@
 
     /* ===== AIRAPI LOGO ===== */
     .airapi-logo-hero {
-      height: 90px;
+      height: 85px;
       width: auto;
-      border-radius: 10px;
+      border-radius: 14px;
       background: #fff;
-      padding: 8px 14px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.25);
-      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+      padding: 10px 18px;
+      border: 2px solid rgba(200,169,81,0.35);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.3), 0 0 60px rgba(200,169,81,0.08);
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease, border-color 0.3s ease;
       animation: airapi-float 4s ease-in-out infinite;
     }
     @keyframes airapi-float {
@@ -718,22 +724,25 @@
     .airapi-logo-hero:hover {
       animation: none;
       transform: scale(1.25);
-      box-shadow: 0 8px 36px rgba(200,169,81,0.35);
+      border-color: var(--gold);
+      box-shadow: 0 8px 40px rgba(200,169,81,0.35), 0 0 80px rgba(200,169,81,0.1);
     }
     .airapi-logo-footer {
-      height: 55px;
+      height: 50px;
       width: auto;
-      border-radius: 8px;
+      border-radius: 10px;
       background: #fff;
-      padding: 6px 12px;
-      box-shadow: 0 3px 16px rgba(0,0,0,0.2);
-      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+      padding: 8px 14px;
+      border: 1.5px solid rgba(200,169,81,0.3);
+      box-shadow: 0 3px 18px rgba(0,0,0,0.2);
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease, border-color 0.3s ease;
       animation: airapi-float 5s ease-in-out infinite;
     }
     .airapi-logo-footer:hover {
       animation: none;
       transform: scale(1.2);
-      box-shadow: 0 6px 28px rgba(200,169,81,0.3);
+      border-color: var(--gold);
+      box-shadow: 0 6px 30px rgba(200,169,81,0.3);
     }
     .footer-airapi {
       display: flex;
@@ -819,18 +828,23 @@
   <!-- Animated ocean waves -->
   <div class="hero-waves">
     <svg class="hero-wave-1" viewBox="0 0 1440 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,320 C120,280 240,360 360,320 C480,280 600,200 720,240 C840,280 960,360 1080,320 C1200,280 1320,200 1440,240 L1440,600 L0,600 Z" fill="rgba(74,0,128,0.5)"/>
-      <path d="M0,380 C160,340 320,420 480,380 C640,340 800,280 960,320 C1120,360 1280,420 1440,380 L1440,600 L0,600 Z" fill="rgba(61,0,102,0.35)"/>
+      <path d="M0,320 C120,280 240,360 360,320 C480,280 600,200 720,240 C840,280 960,360 1080,320 C1200,280 1320,200 1440,240 L1440,600 L0,600 Z" fill="rgba(74,0,128,0.7)"/>
+      <path d="M0,380 C160,340 320,420 480,380 C640,340 800,280 960,320 C1120,360 1280,420 1440,380 L1440,600 L0,600 Z" fill="rgba(61,0,102,0.5)"/>
     </svg>
     <svg class="hero-wave-2" viewBox="0 0 1440 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,350 C180,300 360,400 540,350 C720,300 900,240 1080,290 C1260,340 1350,380 1440,350 L1440,600 L0,600 Z" fill="rgba(90,20,160,0.4)"/>
-      <path d="M0,420 C200,380 400,450 600,410 C800,370 1000,300 1200,350 C1350,380 1400,420 1440,400 L1440,600 L0,600 Z" fill="rgba(50,0,90,0.3)"/>
+      <path d="M0,350 C180,300 360,400 540,350 C720,300 900,240 1080,290 C1260,340 1350,380 1440,350 L1440,600 L0,600 Z" fill="rgba(90,20,160,0.55)"/>
+      <path d="M0,420 C200,380 400,450 600,410 C800,370 1000,300 1200,350 C1350,380 1400,420 1440,400 L1440,600 L0,600 Z" fill="rgba(50,0,90,0.4)"/>
     </svg>
     <svg class="hero-wave-3" viewBox="0 0 1440 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,400 C240,350 480,450 720,400 C960,350 1200,280 1440,330 L1440,600 L0,600 Z" fill="rgba(80,10,140,0.35)"/>
+      <path d="M0,400 C240,350 480,450 720,400 C960,350 1200,280 1440,330 L1440,600 L0,600 Z" fill="rgba(80,10,140,0.5)"/>
     </svg>
     <svg class="hero-wave-4" viewBox="0 0 1440 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,440 C300,400 600,480 900,440 C1200,400 1350,360 1440,420 L1440,600 L0,600 Z" fill="rgba(100,30,180,0.25)"/>
+    </svg>
+    <!-- Foam / white waves -->
+    <svg class="hero-wave-foam" viewBox="0 0 1440 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,480 C100,460 200,490 360,470 C520,450 640,485 800,465 C960,445 1100,480 1260,460 C1360,448 1420,475 1440,468 L1440,600 L0,600 Z" fill="rgba(255,255,255,0.6)"/>
+      <path d="M0,510 C180,495 360,520 540,505 C720,490 900,515 1080,500 C1260,485 1380,510 1440,500 L1440,600 L0,600 Z" fill="rgba(255,255,255,0.3)"/>
     </svg>
   </div>
 
@@ -840,7 +854,7 @@
     <div style="margin-bottom: 2rem; opacity: 0; transform: translateY(20px);" id="h-airapi">
       <p style="font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 0.6rem; opacity: 0.8;">De los creadores de</p>
       <a href="https://www.airapi.mx" target="_blank" class="airapi-link" style="display: inline-block; text-decoration: none;">
-        <img src="images/airapi-logo.png" alt="Airapí – Tributo a la Vida" class="airapi-logo-hero">
+        <img src="images/Logo-airapi.jpg" alt="Airapí – Memorial Park" class="airapi-logo-hero">
       </a>
       <p style="font-size: 0.85rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--cream); margin-top: 1.5rem; opacity: 0.9;">Presentamos</p>
     </div>
@@ -1258,7 +1272,7 @@
     <div class="footer-airapi">
       <span class="footer-airapi-label">Creadores de</span>
       <a href="https://www.airapi.mx" target="_blank" style="display:inline-block; text-decoration:none;">
-        <img src="images/airapi-logo.png" alt="Airapí – Tributo a la Vida" class="airapi-logo-footer">
+        <img src="images/Logo-airapi.jpg" alt="Airapí – Memorial Park" class="airapi-logo-footer">
       </a>
     </div>
     <div class="footer-copy">
