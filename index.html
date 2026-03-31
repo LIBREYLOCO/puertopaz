@@ -1350,35 +1350,37 @@
         </div>
       </div>
 
-      <form class="contact-form fade-up" id="inv-form">
+      <form class="contact-form fade-up" id="inv-form" action="https://formspree.io/mzamoram@yahoo.com.mx" method="POST">
+        <input type="hidden" name="_subject" value="Nueva Solicitud de Inversión — Puerto de Paz">
+        <input type="hidden" name="_next" value="#">
         <div class="form-row">
           <div class="fg">
             <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" placeholder="Tu nombre completo">
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
           </div>
           <div class="fg">
             <label for="tel">Teléfono / WhatsApp</label>
-            <input type="tel" id="tel" placeholder="+52 (___) ___ ____">
+            <input type="tel" id="tel" name="telefono" placeholder="+52 (___) ___ ____" required>
           </div>
         </div>
         <div class="fg">
           <label for="email">Correo electrónico</label>
-          <input type="email" id="email" placeholder="tu@correo.com">
+          <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
         </div>
         <div class="fg">
           <label for="nivel">Nivel de interés</label>
-          <select id="nivel">
+          <select id="nivel" name="nivel_inversion" required>
             <option value="">Seleccionar rango de inversión...</option>
-            <option value="1">1 Lote por 10% ($1,600,000 MXN)</option>
-            <option value="2">2 Lotes por 20% ($3,200,000 MXN)</option>
-            <option value="3">3 Lotes por 30% ($4,800,000 MXN)</option>
-            <option value="4">4 Lotes por 40% ($6,400,000 MXN)</option>
-            <option value="5">5 Lotes por 50% ($8,000,000 MXN)</option>
+            <option value="1 Lote - 10% ($1,600,000 MXN)">1 Lote por 10% ($1,600,000 MXN)</option>
+            <option value="2 Lotes - 20% ($3,200,000 MXN)">2 Lotes por 20% ($3,200,000 MXN)</option>
+            <option value="3 Lotes - 30% ($4,800,000 MXN)">3 Lotes por 30% ($4,800,000 MXN)</option>
+            <option value="4 Lotes - 40% ($6,400,000 MXN)">4 Lotes por 40% ($6,400,000 MXN)</option>
+            <option value="5 Lotes - 50% ($8,000,000 MXN)">5 Lotes por 50% ($8,000,000 MXN)</option>
           </select>
         </div>
         <div class="fg">
           <label for="msg">Mensaje (opcional)</label>
-          <textarea id="msg" placeholder="¿Tienes alguna pregunta o comentario?"></textarea>
+          <textarea id="msg" name="mensaje" placeholder="¿Tienes alguna pregunta o comentario?"></textarea>
         </div>
         <button type="submit" class="btn-primary" id="form-btn" style="width:100%; padding:1rem;">
           Enviar Solicitud Privada
@@ -1485,13 +1487,33 @@
     });
   });
 
-  /* ── Form submit ── */
+  /* ── Form submit via Formspree ── */
   document.getElementById("inv-form").addEventListener("submit", function(e) {
     e.preventDefault();
+    const form = e.target;
     const btn = document.getElementById("form-btn");
-    btn.textContent = "✓ Solicitud Enviada — Nos pondremos en contacto pronto";
-    btn.style.background = "linear-gradient(135deg, #2D7A5A, #3DAA78)";
+    btn.textContent = "Enviando...";
     btn.disabled = true;
+
+    fetch("https://formspree.io/mzamoram@yahoo.com.mx", {
+      method: "POST",
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        btn.textContent = "✓ Solicitud Enviada — Nos pondremos en contacto pronto";
+        btn.style.background = "linear-gradient(135deg, #2D7A5A, #3DAA78)";
+        form.reset();
+      } else {
+        btn.textContent = "Error al enviar. Intenta de nuevo.";
+        btn.style.background = "linear-gradient(135deg, #7A2D2D, #AA3D3D)";
+        btn.disabled = false;
+      }
+    }).catch(() => {
+      btn.textContent = "Error de conexión. Intenta de nuevo.";
+      btn.style.background = "linear-gradient(135deg, #7A2D2D, #AA3D3D)";
+      btn.disabled = false;
+    });
   });
 </script>
 
