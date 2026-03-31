@@ -1350,7 +1350,7 @@
         </div>
       </div>
 
-      <form class="contact-form fade-up" id="inv-form" name="solicitud-inversion" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <form class="contact-form fade-up" id="inv-form" name="solicitud-inversion" action="/index.html" method="POST" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="solicitud-inversion">
         <p style="display:none;"><input name="bot-field"></p>
         <div class="form-row">
@@ -1495,10 +1495,11 @@
     btn.textContent = "Enviando...";
     btn.disabled = true;
 
-    fetch("/", {
+    const formData = new URLSearchParams(new FormData(form)).toString();
+    fetch(form.getAttribute("action") || window.location.pathname, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(new FormData(form)).toString()
+      body: formData
     }).then(response => {
       if (response.ok) {
         btn.textContent = "✓ Solicitud Enviada — Nos pondremos en contacto pronto";
